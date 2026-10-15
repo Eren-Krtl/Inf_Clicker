@@ -26,13 +26,15 @@
 	display: grid;
 	grid-template-columns: 4fr 5fr;
 }
-#ByteCounter {
+#BitCounter {
 	color: #FFFFFF;
 	font-size: 48px;
 }
-#RandomByte {
+#RandomBit {
 	color: #008F00;
 	font-size: 56px;
+	background-color: #000000;
+	border-radius: 10px;
 }
 .Description {
 	margin-left: 10px;
