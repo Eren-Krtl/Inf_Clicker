@@ -1,0 +1,46 @@
+#ClickButton {
+	font-size: 72px;
+	background-color: darkgreen;
+	border: 5px dashed black;
+	border-radius: 30px;
+}
+#ClickDiv {
+	display: grid;
+	place-items: center;
+
+	margin-top: 50px;
+	border-radius: 50px;
+
+	background-color: #303030;
+
+	width: 600px;
+	height: 600px;
+}
+#UpgradeDiv {
+	display: grid;
+	place-items: center;
+
+	border-left: 3px solid black;
+}
+#MainMenu {
+	display: grid;
+	grid-template-columns: 4fr 5fr;
+}
+#ByteCounter {
+	color: #FFFFFF;
+	font-size: 48px;
+}
+#RandomByte {
+	color: #008F00;
+	font-size: 56px;
+}
+.Description {
+	margin-left: 10px;
+	color: blue;
+	font-size: 16px;
+	display: inline;
+}
+.UpgradeButton {
+	color: white;
+	background-color: black;
+}
