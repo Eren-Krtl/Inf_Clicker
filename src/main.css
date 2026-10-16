@@ -1,3 +1,10 @@
+#Body {
+	background-color: #202520;
+}
+#Title {
+	text-align: center;
+	color: #A3A3A3;
+}
 #ClickButton {
 	font-size: 72px;
 	background-color: darkgreen;
@@ -16,7 +23,7 @@
 	width: 600px;
 	height: 600px;
 }
-#UpgradeDiv {
+#UpgradeTable {
 	display: grid;
 	place-items: center;
 
@@ -36,13 +43,23 @@
 	background-color: #000000;
 	border-radius: 10px;
 }
+.UpgradeRow {
+	border-radius: 10px;
+	background-color: #000000;
+	width: 400px;
+}
+.UpgradeTable {
+	border: 3px solid black;
+}
 .Description {
-	margin-left: 10px;
-	color: blue;
+	color: #3030FF;
 	font-size: 16px;
-	display: inline;
 }
 .UpgradeButton {
 	color: white;
-	background-color: black;
+	background-color: #404040;
+	border: 3px solid #303050;
+	border-radius: 10px;
+	height: 100px;
+	width: 200px;
 }
