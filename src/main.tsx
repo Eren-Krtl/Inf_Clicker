@@ -21,11 +21,12 @@ function Main() {
 		if(Math.random() <= ChanceToDouble/10){
 			clickValueExtra *= 2
 		}
+		clickValueExtra *= Trophies
 		setCurrentBitsEarned(clickValueExtra.toString())
-		setBits(AddToValue(Bits, clickValueExtra, Trophies)); {/ + before the Value makes the string a integer*/}
+		setBits(AddToValue(Bits, clickValueExtra, 1)); {/ + before the Value makes the string a integer*/}
 	}
 	function RebirthButtonPressed() {
-		if(Rebirth < 1){
+		if(CurrentRebirth < 1){
 			return
 		}
 		setBits(0)
@@ -40,7 +41,7 @@ function Main() {
 	function IfBitsIsEnough(neededValue:number, variable:number, toAdd:number) {
 		if (Bits >= neededValue) {
 			setBits(Bits => Bits - neededValue)
-			return AddToValue(variable, toAdd, Trophies)
+			return AddToValue(variable, toAdd, 1)
 		}
 		return variable
 	}
@@ -60,7 +61,7 @@ function Main() {
 				<div id="ClickDiv">
 					<p id="BitCounter">Bits: {Bits}</p>
 					<p id="RandomBit">{Value}</p>
-					<p id="CurrentlyEarned">Currently Earned: {CurrentBitsEarned}. Current multiplier: {Trophies}</p>
+					<p id="CurrentlyEarned">Currently Earned: {CurrentBitsEarned}</p>
 					<button id="ClickButton" onClick={BitButtonClicked}>Click to generate a bit string</button>
 				</div>
 				<div id="UpgradeDiv">
@@ -74,7 +75,7 @@ function Main() {
 							<td className="Description">+1 Bit gain per roll: {ExtraBits-1}</td>
 						</tr>
 						<tr className="UpgradeRow">
-							<td><button className="UpgradeButton" onClick={() => {setChanceToDouble(IfBitsIsEnough(25**ChanceToDouble+1, ChanceToDouble, 1))}}>Upgrade: {25**ChanceToDouble}</button></td>
+							<td><button className="UpgradeButton" onClick={() => {setChanceToDouble(IfBitsIsEnough(25**(ChanceToDouble+1), ChanceToDouble, 1))}}>Upgrade: {25**(ChanceToDouble+1)}</button></td>
 							<td className="Description">Chance to Double: {ChanceToDouble*10}%</td>
 						</tr>
 					</table>
