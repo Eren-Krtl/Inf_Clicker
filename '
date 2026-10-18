@@ -1,0 +1,109 @@
+:root {
+	background-color: #001000;
+}
+#Title {
+	text-align: center;
+	color: #A3A3A3;
+}
+#MainMenu {
+	display: grid;
+	grid-template-columns: 4fr 5fr;
+}
+#ClickButton {
+	font-size: 72px;
+	background-color: #406040;
+	border: 5px dashed black;
+	border-radius: 30px;
+}
+#ClickDiv {
+	display: grid;
+	place-items: center;
+
+	margin-top: 50px;
+	border-radius: 50px;
+
+	background-color: #202020;
+
+	width: 600px;
+	height: 600px;
+}
+#UpgradeTable {
+	display: grid;
+	place-items: center;
+
+	height: 500px;
+}
+#UpgradeDiv {
+	border-left: 3px solid #A0A0A0;
+}
+#BitCounter {
+	color: #FFFFFF;
+	font-size: 56px;
+	margin-top: 10px;
+}
+#RandomBit {
+	color: #008F00;
+	font-size: 48px;
+	background-color: #000000;
+	border-radius: 10px;
+	margin-top: 1000px;
+}
+#CurrentlyEarned{
+	color: #FFFFFF;
+	font-size: 24px;
+}
+#RebirthDiv {
+	display: flex;
+	justify-content: center;
+}
+#RebirthButton {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-content: center;
+
+	background-color: #303230;
+	width: 130px;
+	height: 50px;
+	border-radius: 5px;
+	transition: all ease-in-out 150ms;
+}
+#RebirthTitle {
+	color: #FFFFFF;
+	font-size: 24px;
+	margin-top: 10px;
+}
+#RebirthDesc {
+	color: #CFCFCF;
+	opacity: 0;
+	width: 200px;
+	height: 100px;
+}
+#RebirthButton:hover {
+	width: 200px;
+	height: 100px;
+}
+#RebirthButton:hover #RebirthDesc {
+	opacity: 1;
+
+
+}
+.UpgradeRow {
+	border-radius: 10px;
+	background-color: #202420;
+	width: 400px;
+}
+.UpgradeTable {
+	border: 3px solid #A0A0A0;
+}
+.Description {
+	color: #3030FF;
+	font-size: 16px;
+}
+.UpgradeButton {
+	color: white;
+	background-color: #404040;
+	border: 3px solid #303050;
+	border-radius: 10px;
+	height: 100px;
+	width: 200px;
+}

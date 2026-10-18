@@ -1,0 +1,54 @@
+import "./main.css";
+import { RandomBitsGeneration, BitsIntoValues, AddToValue } from './bits_logic.tsx';
+import { useState } from 'react' ;
+
+function Main() {
+	const [Bits, setBits] = useState(0);
+	const [Value, setValue] = useState(new String("0"))
+	const [Trophies, setTrophies] = useState(1)
+	const [BitNumbers, setBitNumbers] = useState(1);
+	const [ExtraBits, setExtraBits] = useState(1)
+	const [ClickPerSecond, setClickPerSecond] = useState(0)
+	function BitButtonClicked() {
+		let clickBits = RandomBitsGeneration(BitNumbers)
+		setValue(clickBits)
+		let clickValue = +BitsIntoValues(clickBits)
+		let clickValueExtra = clickValue + (ExtraBits-1)
+		setBits(AddToValue(Bits, clickValueExtra, 1)); {/ + before the Value makes the string a integer*/}
+	}
+	function IfBitsIsEnough(neededValue:number, variable:number, toAdd:number) {
+		if (Bits >= neededValue) {
+			setBits(Bits => Bits - neededValue)
+			return AddToValue(variable, toAdd, Trophies)
+		}
+		return variable
+	}
+	return (
+		<div id="Body">
+			<h1 id="Title">Infinite Clicker</h1>
+			<div id="MainMenu">
+				<div id="ClickDiv">
+					<p id="BitCounter">{Bits}</p>
+					<p id="RandomBit">{Value}</p>
+					<button id="ClickButton" onClick={BitButtonClicked}>Click to generate a bit string</button>
+				</div>
+				<table id="UpgradeTable">
+					<tr className="UpgradeRow">
+						<td><button className="UpgradeButton" onClick={() => {setBitNumbers(IfBitsIsEnough(10**BitNumbers, BitNumbers, 1))}}>Upgrade: {10**BitNumbers}</button></td>
+						<td className="Description">+1 Bit per roll: {BitNumbers-1}</td>
+					</tr>
+					<tr className="UpgradeRow">
+						<td><button className="UpgradeButton" onClick={() => {setExtraBits(IfBitsIsEnough(5**ExtraBits, ExtraBits, 1))}}>Upgrade: {5**ExtraBits}</button></td>
+						<td className="Description">+1 Bit gain per roll: {ExtraBits-1}</td>
+					</tr>
+					<tr>
+						<td><button className="UpgradeButton" onClick={() => {setClickPerSecond(IfBitsIsEnough(25**ClickPerSecond, ClickPerSecond, 1))}}>Upgrade: {5**ClickPerSecond}</button></td>
+						<td className="Description">+1 Click Per Second: {ClickPerSecond}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	);
+}
+
+export default Main
