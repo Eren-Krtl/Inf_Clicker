@@ -16,13 +16,13 @@ function Main() {
 	function BitButtonClicked() {
 		let clickBits = RandomBitsGeneration(BitNumbers)
 		setValue(clickBits)
-		let clickValue = +BitsIntoValues(clickBits)
+		let clickValue = +BitsIntoValues(clickBits.toString())
 		let clickValueExtra = clickValue + (ExtraBits-1)
 		if(Math.random() <= ChanceToDouble/10){
 			clickValueExtra *= 2
 		}
 		setCurrentBitsEarned(clickValueExtra.toString())
-		setBits(AddToValue(Bits, clickValueExtra, 1)); {/ + before the Value makes the string a integer*/}
+		setBits(AddToValue(Bits, clickValueExtra, Trophies)); {/ + before the Value makes the string a integer*/}
 	}
 	function RebirthButtonPressed() {
 		if(Rebirth < 1){
@@ -35,6 +35,7 @@ function Main() {
 		setChanceToDouble(0)
 		setCurrentBitsEarned("0")
 		setCurrentRebirth(0)
+		setTrophies((AllRebirth + 1))
 	}
 	function IfBitsIsEnough(neededValue:number, variable:number, toAdd:number) {
 		if (Bits >= neededValue) {
@@ -47,9 +48,9 @@ function Main() {
 		let NeededValue = 15**(AllRebirth+1) + 10*AllRebirth
 		console.log(NeededValue);
 		if(Bits >= NeededValue){
-			setAllRebirth(AllRebirth + 1)
-			setRebirth(Rebirth => Rebirth + 1)
-			setCurrentRebirth(CurrentRebirth => CurrentRebirth + 1)
+			setAllRebirth(AddToValue(AllRebirth, 1, 1))
+			setRebirth(AddToValue(Rebirth, 1, 1))
+			setCurrentRebirth(AddToValue(CurrentRebirth, 1, 1))
 		}
 	}, [Bits])
 	return (
@@ -59,7 +60,7 @@ function Main() {
 				<div id="ClickDiv">
 					<p id="BitCounter">Bits: {Bits}</p>
 					<p id="RandomBit">{Value}</p>
-					<p id="CurrentlyEarned">Currently Earned: {CurrentBitsEarned}</p>
+					<p id="CurrentlyEarned">Currently Earned: {CurrentBitsEarned}. Current multiplier: {Trophies}</p>
 					<button id="ClickButton" onClick={BitButtonClicked}>Click to generate a bit string</button>
 				</div>
 				<div id="UpgradeDiv">
